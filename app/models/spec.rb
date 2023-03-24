@@ -1,4 +1,4 @@
 class Spec < ApplicationRecord
   belongs_to :customer
-  has_many: boxes
+  has_many :boxes
 end

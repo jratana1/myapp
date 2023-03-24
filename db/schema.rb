@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_164608) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_24_153447) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boxes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "barcode"
+    t.datetime "status_change"
+    t.integer "status", default: 0
+    t.bigint "spec_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spec_id"], name: "index_boxes_on_spec_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -30,5 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_164608) do
     t.index ["customer_id"], name: "index_specs_on_customer_id"
   end
 
+  add_foreign_key "boxes", "specs"
   add_foreign_key "specs", "customers"
 end
