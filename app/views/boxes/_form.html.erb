@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :id %>
-    <%= form.text_field :id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
     <%= form.label :barcode %>
     <%= form.text_field :barcode, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
@@ -28,12 +23,12 @@
 
   <div class="my-5">
     <%= form.label :status %>
-    <%= form.number_field :status, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :status, options_for_select(Box.statuses.map {|key, value| [key.titleize, Box.statuses.key(value)]}, @box.status), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :spec_id %>
-    <%= form.text_field :spec_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.collection_select :spec_id, Spec.order(:name), :id, :name, include_blank: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
