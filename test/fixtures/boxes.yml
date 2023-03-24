@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  barcode: MyString
+  status_change: 2023-03-24 11:34:47
+  status: 1
+  spec: one
+
+two:
+  id: 
+  barcode: MyString
+  status_change: 2023-03-24 11:34:47
+  status: 1
+  spec: two

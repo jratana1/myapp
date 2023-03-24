@@ -1,0 +1,32 @@
+<div id="<%= dom_id box %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Id:</strong>
+    <%= box.id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Barcode:</strong>
+    <%= box.barcode %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Status change:</strong>
+    <%= box.status_change %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Status:</strong>
+    <%= box.status %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Spec:</strong>
+    <%= box.spec_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this box", box, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this box', edit_box_path(box), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

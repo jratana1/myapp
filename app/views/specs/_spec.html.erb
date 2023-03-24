@@ -6,7 +6,11 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Date completed:</strong>
-    <%= spec.date_completed %>
+    <% if spec.date_completed.present? %>
+      <%= spec.date_completed %>
+    <% else %>
+      <%= "Incomplete" %>
+    <% end %>
   </p>
 
   <p class="my-5">
@@ -15,8 +19,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this spec", spec, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this spec', edit_spec_path(spec), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this spec", spec, class: "rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-500 inline-block font-medium" %>
+    <%= link_to 'Edit this spec', edit_spec_path(spec), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 hover:bg-gray-500 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
